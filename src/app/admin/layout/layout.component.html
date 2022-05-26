@@ -1,0 +1,10 @@
+<mat-drawer-container class="container example-container">
+    <mat-drawer mode="side" opened class="w-200">
+        <app-sidebar></app-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <button (click)="m()">Message</button>
+        <button (click)="d()">DismissAll</button>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
