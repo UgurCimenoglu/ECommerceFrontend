@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -34,7 +34,30 @@ export class HttpClientService {
 
     return this.httpClient.post<T>(url, body, { headers: requestParameters.headers });
   }
+
+  put<T>(requestParameters: RequestParameters, body: Partial<T>): Observable<T> {
+
+    let url: string = "";
+    if (requestParameters.FullEndpoint)
+      url = requestParameters.FullEndpoint;
+    else
+      url = `${this.url(requestParameters)}`;
+
+    return this.httpClient.put<T>(url, body, { headers: requestParameters.headers });
+  }
+
+  delete(requestParameters: RequestParameters, id: string) {
+    let url: string = "";
+    if (requestParameters.FullEndpoint)
+      url = requestParameters.FullEndpoint;
+    else
+      url = `${this.url(requestParameters)}/${id}`;
+    return this.httpClient.delete(url, { headers: requestParameters.headers })
+  }
+
 }
+
+
 
 export class RequestParameters {
   controller?: string;
