@@ -11,8 +11,8 @@ declare var $: any;
 })
 export class AppComponent {
   constructor(private toastr: CustomToastrService) {
-    this.toastr.message("Selam", "Bildirim", { messageType: ToastrMessageType.Info, position: ToastrPosition.BottomCenter }),
-      this.toastr.message("Selamlar", "Bildirim", { messageType: ToastrMessageType.Success, position: ToastrPosition.TopRight })
+    // this.toastr.message("Selam", "Bildirim", { messageType: ToastrMessageType.Info, position: ToastrPosition.BottomCenter }),
+    //   this.toastr.message("Selamlar", "Bildirim", { messageType: ToastrMessageType.Success, position: ToastrPosition.TopRight })
 
   }
 }
